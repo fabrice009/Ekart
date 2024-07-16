@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', changelog: false, credentialsId: '15fb69c3-3460-4d51-bd07-2b0545fa5151', poll: false, url: 'https://github.com/jaiswaladi246/Shopping-Cart.git'
+                git branch: 'main', changelog: false, credentialsId: '15fb69c3-3460-4d51-bd07-2b0545fa5151', poll: false, url: 'https://github.com/fabrice009/Ekart.git'
             }
         }
         
@@ -51,8 +51,8 @@ pipeline {
                     withDockerRegistry(credentialsId: 'c803e811-76e4-4588-8462-3c83c1e13194', toolName: 'docker') {
                         
                         sh "docker build -t shopping-cart -f docker/Dockerfile ."
-                        sh "docker tag  shopping-cart adijaiswal/shopping-cart:latest"
-                        sh "docker push adijaiswal/shopping-cart:latest"
+                        sh "docker tag  shopping-cart fabriceo9/shopping-cart:latest"
+                        sh "docker push fabriceo9/shopping-cart:latest"
                     }
                 }
             }
